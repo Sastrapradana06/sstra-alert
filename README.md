@@ -14,48 +14,66 @@ Untuk menginstal library ini, jalankan perintah berikut:
 npm install sstra-alert
 ```
 
-Penggunaan
-Komponen Alert
+Penggunaan:
+
+Konfigurasi tailwind.config.js
+
+```jsx
+// tailwind.config.js
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/sstra-alert/**/*.{js,jsx,ts,tsx}", // Tambahkan ini
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
 
 Untuk menggunakan komponen Alert, import dan gunakan di dalam aplikasi Anda:
 
-    import React from 'react';
-    import { Alert } from 'sstra-alert';
+```jsx
+import React from "react";
+import { Alert } from "sstra-alert";
 
-    const App = () => (
-        <Alert message="This is an alert!" type="success" />
-    );
+const App = () => (
+  <Alert status={true} type="success" message="This is an alert!" />
+);
+```
 
 Props:
 
+- status (boolean) : Kondisi
 - message (string): Pesan yang akan ditampilkan di alert.
-- type (string): Tipe alert. Pilihan: success, error, warning, info.
+- type (string): Tipe alert. Pilihan: success, info, error.
 
 Hook useAlert
 
 Untuk menggunakan hook useAlert, import dan gunakan di dalam aplikasi Anda:
 
-    import React from 'react';
-    import useHandleAlert from 'sstra-alert/hooks/useAlert';
-    import { Alert } from 'sstra-alert';
+```jsx
+import React from "react";
+import useHandleAlert from "sstra-alert/hooks/useAlert";
+import { Alert } from "sstra-alert";
 
-    const App = () => {
-        const { status, data, handleAlert } = useHandleAlert();
+const App = () => {
+  const { status, data, handleAlert } = useHandleAlert();
 
-        return (
-            <div>
-                <button onClick={() => showAlert('This is an alert!', 'success')}>Show Alert</button>
-                <button onClick={hideAlert}>Hide Alert</button>
-                <Alert
-                    status={status}
-                    type={data.type}
-                    message={data.message}
-                    background={"bg-gray-600"}
-                />
-                <button onClick={() => handleAlert("success", "success")}>click</button>
-            </div>
-        );
-    };
+  return (
+    <div>
+      <Alert
+        status={status}
+        type={data.type}
+        message={data.message}
+        background={"bg-gray-600"}
+      />
+      <button onClick={() => handleAlert("success", "success")}>click</button>
+    </div>
+  );
+};
+```
 
 Hook Return Values:
 

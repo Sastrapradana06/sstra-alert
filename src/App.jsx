@@ -14,7 +14,13 @@ function App() {
         message={data.message}
         background={"bg-gray-600"}
       />
-      <button onClick={() => handleAlert("success", "success")}>click</button>
+      <button
+        onClick={() =>
+          handleAlert("success", "Berhasil menambahkan data buku yang baru")
+        }
+      >
+        click
+      </button>
     </div>
   );
 }
