@@ -55,8 +55,7 @@ Untuk menggunakan hook useAlert, import dan gunakan di dalam aplikasi Anda:
 
 ```jsx
 import React from "react";
-import useHandleAlert from "sstra-alert/hooks/useAlert";
-import { Alert } from "sstra-alert";
+import { Alert, useHandleAlert } from "sstra-alert";
 
 const App = () => {
   const { status, data, handleAlert } = useHandleAlert();
