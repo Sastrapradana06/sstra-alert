@@ -2,6 +2,7 @@ declare module "sstra-alert" {
   import * as React from "react";
 
   export interface AlertProps {
+    status: boolean;
     message: string;
     type: "success" | "info" | "error";
     background: string;
@@ -11,8 +12,8 @@ declare module "sstra-alert" {
 
   export interface UseHandleAlertReturn {
     status: boolean;
-    data: { type: string; message: string };
-    handleAlert: (type: string, message: string) => void;
+    data: { type: "success" | "info" | "error"; message: string };
+    handleAlert: (type: "success" | "info" | "error", message: string) => void;
   }
 
   export function useHandleAlert(): UseHandleAlertReturn;

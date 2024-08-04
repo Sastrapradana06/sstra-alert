@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function useHandleAlert() {
   const [status, setStatus] = useState(false);
   const [data, setData] = useState({
-    type: "",
+    type: "success",
     message: "",
   });
 
